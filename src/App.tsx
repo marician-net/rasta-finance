@@ -11,6 +11,7 @@ import PageLoader from './components/PageLoader'
 import Stake from './views/Stake'
 import GlobalCheckBullHiccupClaimStatus from './views/Collectibles/components/GlobalCheckBullHiccupClaimStatus'
 import history from './routerHistory'
+import Header from "./components/layout/Header"
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -50,10 +51,12 @@ const App: React.FC = () => {
   useFetchProfile()
 
   return (
+    <div className="bg-black font-roboto h-screen text-white">
     <Router history={history}>
-      <ResetCSS />
-      <GlobalStyle />
-      <Menu>
+      {/* <ResetCSS /> */}
+      {/* <GlobalStyle /> */}
+      {/* <Menu> */}
+        <Header />
         <Suspense fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
@@ -100,10 +103,11 @@ const App: React.FC = () => {
             <Route component={NotFound} />
           </Switch>
         </Suspense>
-      </Menu>
+      {/* </Menu> */}
       <ToastListener />
       <GlobalCheckBullHiccupClaimStatus />
     </Router>
+    </div>
   )
 }
 

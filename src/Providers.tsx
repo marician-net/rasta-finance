@@ -8,6 +8,14 @@ import { ThemeContextProvider } from 'contexts/ThemeContext'
 import { BlockContextProvider } from 'contexts/BlockContext'
 import { RefreshContextProvider } from 'contexts/RefreshContext'
 import store from 'state'
+import { Web3Provider } from '@ethersproject/providers'
+import { Web3ReactProvider } from '@web3-react/core'
+
+function getLibrary(provider: any): Web3Provider {
+  const library = new Web3Provider(provider);
+  library.pollingInterval = 12000;
+  return library;
+}
 
 const Providers: React.FC = ({ children }) => {
   const rpcUrl = getRpcUrl()
@@ -25,7 +33,9 @@ const Providers: React.FC = ({ children }) => {
           >
             <BlockContextProvider>
               <RefreshContextProvider>
-                <ModalProvider>{children}</ModalProvider>
+                <Web3ReactProvider getLibrary={getLibrary}>
+                  <ModalProvider>{children}</ModalProvider>
+                </Web3ReactProvider>
               </RefreshContextProvider>
             </BlockContextProvider>
           </UseWalletProvider>

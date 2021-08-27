@@ -43,7 +43,7 @@ export default function HeroSection() {
         </div>
         <div className=" w-full hidden md:flex md:block md:max-w-screen-xl md:mx-auto items-center md:flex-row space-x-8 my-16">
             {counter.map((item,index) => {
-                return <div className="w-1/4 bg-red-rasta rounded-xl text-center py-6">
+                return <div className="w-1/4 bg-red-rasta rounded-xl text-center py-6" key={item.label}>
                     <div className="number text-3xl font-bold">{item.numbers}</div>
                     <div className="desc">{item.label}</div>
                     </div>
