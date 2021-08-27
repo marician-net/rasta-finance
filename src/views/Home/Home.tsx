@@ -12,6 +12,10 @@ import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import WinCard from 'views/Home/components/WinCard'
 import CountDown from 'components/CountDown'
 
+import HeroSection from './components/HeroSection';
+import Community from './components/Community';
+import FavCreator from "./components/FavoriteCreator";
+
 const Hero = styled.div`
   align-items: center;
   background-image: url('/images/logo.svg');
@@ -106,24 +110,31 @@ const Home: React.FC = () => {
   const TranslateString = useI18n()
 
   return (
-    <Page>
-      <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="#543212">
-          {TranslateString(576, 'Rasta.Finance')}
-        </Heading>
-        <Text color="black">{TranslateString(578, 'Community Driven High Yield AMM')}</Text>
-      </Hero>
-      <div>
-        <Cards>
-          <FarmStakingCard />
-          <TwitterCard />
-        </Cards>
-        <CTACards>
-          <CakeStats />
-          <TotalValueLockedCard />
-        </CTACards>
-      </div>
-    </Page>
+    // <Page>
+    //   <Hero>
+    //     <Heading as="h1" size="xl" mb="24px" color="#543212">
+    //       {TranslateString(576, 'Rasta.Finance')}
+    //     </Heading>
+    //     <Text color="black">{TranslateString(578, 'Community Driven High Yield AMM')}</Text>
+    //   </Hero>
+    //   <div>
+    //     <Cards>
+    //       <FarmStakingCard />
+    //       <TwitterCard />
+    //     </Cards>
+    //     <CTACards>
+    //       <CakeStats />
+    //       <TotalValueLockedCard />
+    //     </CTACards>
+    //   </div>
+    // </Page>
+    <div>
+        <section>
+            <HeroSection/>
+            <Community/>
+            <FavCreator/>
+        </section>
+    </div>
   )
 }
 
