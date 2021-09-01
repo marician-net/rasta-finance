@@ -4,6 +4,8 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from 'rasta-uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchProfile, useFetchPublicData } from 'state/hooks'
+import About from 'views/About/About'
+import Footer from 'components/layout/Footer'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import ToastListener from './components/ToastListener'
@@ -62,6 +64,9 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <Home />
             </Route>
+            <Route path="/about" exact>
+              <About />
+            </Route>
             <Route path="/farms">
               <Farms />
             </Route>
@@ -104,6 +109,7 @@ const App: React.FC = () => {
           </Switch>
         </Suspense>
       {/* </Menu> */}
+      <Footer />
       <ToastListener />
       <GlobalCheckBullHiccupClaimStatus />
     </Router>
