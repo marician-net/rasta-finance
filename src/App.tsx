@@ -6,6 +6,8 @@ import BigNumber from 'bignumber.js'
 import { useFetchProfile, useFetchPublicData } from 'state/hooks'
 import About from 'views/About/About'
 import Footer from 'components/layout/Footer'
+import Contact from './views/Contact/Contact'
+import Farms2 from './views/Farms/Farms2'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import ToastListener from './components/ToastListener'
@@ -66,6 +68,12 @@ const App: React.FC = () => {
             </Route>
             <Route path="/about" exact>
               <About />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/farming/:farm">
+              <Farms2 />
             </Route>
             <Route path="/farms">
               <Farms />

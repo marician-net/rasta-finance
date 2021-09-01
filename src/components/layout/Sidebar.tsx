@@ -48,11 +48,11 @@ export default function Sidebar() {
             parent: true,
             child: [
                 {
-                path: "/farms/mr-rasta",
+                path: "/farming/mr-rasta",
                 label: "Mr. Rasta",
                 },
                 {
-                path: "/farms/mrs-rasta",
+                path: "/farming/mrs-rasta",
                 label: "Mrs. Rasta",
                 },
             ],
