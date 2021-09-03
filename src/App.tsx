@@ -4,6 +4,10 @@ import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from 'rasta-uikit'
 import BigNumber from 'bignumber.js'
 import { useFetchProfile, useFetchPublicData } from 'state/hooks'
+import About from 'views/About/About'
+import Footer from 'components/layout/Footer'
+import Contact from './views/Contact/Contact'
+import Farms2 from './views/Farms/Farms2'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import ToastListener from './components/ToastListener'
@@ -11,6 +15,7 @@ import PageLoader from './components/PageLoader'
 import Stake from './views/Stake'
 import GlobalCheckBullHiccupClaimStatus from './views/Collectibles/components/GlobalCheckBullHiccupClaimStatus'
 import history from './routerHistory'
+import Header from "./components/layout/Header"
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -50,14 +55,25 @@ const App: React.FC = () => {
   useFetchProfile()
 
   return (
+    <div className="bg-black font-roboto h-screen text-white">
     <Router history={history}>
-      <ResetCSS />
-      <GlobalStyle />
-      <Menu>
+      {/* <ResetCSS /> */}
+      {/* <GlobalStyle /> */}
+      {/* <Menu> */}
+        <Header />
         <Suspense fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/about" exact>
+              <About />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/farming/:farm">
+              <Farms2 />
             </Route>
             <Route path="/farms">
               <Farms />
@@ -100,10 +116,12 @@ const App: React.FC = () => {
             <Route component={NotFound} />
           </Switch>
         </Suspense>
-      </Menu>
+      {/* </Menu> */}
+      <Footer />
       <ToastListener />
       <GlobalCheckBullHiccupClaimStatus />
     </Router>
+    </div>
   )
 }
 
