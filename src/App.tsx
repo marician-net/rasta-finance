@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, lazy } from 'react'
+import React, { useEffect, useRef, useState, Suspense, lazy } from 'react'
 import { Router, Redirect, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from 'rasta-uikit'
@@ -11,6 +11,12 @@ import PageLoader from './components/PageLoader'
 import Stake from './views/Stake'
 import GlobalCheckBullHiccupClaimStatus from './views/Collectibles/components/GlobalCheckBullHiccupClaimStatus'
 import history from './routerHistory'
+import About from 'views/About/About'
+import Header from './views/HeaderFooter/Header'
+import Footer from './views/HeaderFooter/Footer'
+import SideMenu from './views/SideMenu/SideMenu'
+
+import 'font-awesome/css/font-awesome.min.css'
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page'
@@ -48,59 +54,66 @@ const App: React.FC = () => {
 
   useFetchPublicData()
   useFetchProfile()
+  let sideMenuVisible
+  let SETsideMenuVisible
+  ;[sideMenuVisible, SETsideMenuVisible] = useState(false)
 
   return (
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
-      <Menu>
-        <Suspense fallback={<PageLoader />}>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/farms">
-              <Farms />
-            </Route>
-            <Route path="/pools">
-              <Pools />
-            </Route>
-            <Route path="/stake">
-              <Stake />
-            </Route>
-            <Route path="/lottery">
-              <Lottery />
-            </Route>
-            <Route path="/ifo">
-              <Ifos />
-            </Route>
-            <Route path="/collectibles">
-              <Collectibles />
-            </Route>
-            <Route exact path="/teams">
-              <Teams />
-            </Route>
-            <Route path="/teams/:id">
-              <Team />
-            </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            {/* Redirect */}
-            <Route path="/staking">
-              <Redirect to="/pools" />
-            </Route>
-            <Route path="/syrup">
-              <Redirect to="/pools" />
-            </Route>
-            <Route path="/nft">
-              <Redirect to="/collectibles" />
-            </Route>
-            {/* 404 */}
-            <Route component={NotFound} />
-          </Switch>
-        </Suspense>
-      </Menu>
+      <Header sideMenuCtrl={SETsideMenuVisible} />
+      <SideMenu visible={[sideMenuVisible, SETsideMenuVisible]} />
+      <Suspense fallback={<PageLoader />}>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/farms">
+            <Farms />
+          </Route>
+          <Route path="/pools">
+            <Pools />
+          </Route>
+          <Route path="/stake">
+            <Stake />
+          </Route>
+          <Route path="/lottery">
+            <Lottery />
+          </Route>
+          <Route path="/ifo">
+            <Ifos />
+          </Route>
+          <Route path="/collectibles">
+            <Collectibles />
+          </Route>
+          <Route exact path="/teams">
+            <Teams />
+          </Route>
+          <Route path="/teams/:id">
+            <Team />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          {/* Redirect */}
+          <Route path="/staking">
+            <Redirect to="/pools" />
+          </Route>
+          <Route path="/syrup">
+            <Redirect to="/pools" />
+          </Route>
+          <Route path="/nft">
+            <Redirect to="/collectibles" />
+          </Route>
+          {/* 404 */}
+          <Route component={NotFound} />
+        </Switch>
+      </Suspense>
+      <Footer />
       <ToastListener />
       <GlobalCheckBullHiccupClaimStatus />
     </Router>
