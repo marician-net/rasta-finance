@@ -30,17 +30,38 @@ const AboutStyle = createGlobalStyle`
           padding: 15px;
           border-radius: 10px;
           transform: translateY(-50%);
+          @media only screen and (max-width: ${minWidth}px) {
+            transform: unset;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-bottom: 50px;
+          }
           box-shadow: 0 0 50px 0px rgba(0,0,0,0.2);
           >div:first-child{
             @media only screen and (max-width: ${minWidth}px) {
               flex-direction: column;
+            }
+            >span:nth-child(1){
+              flex: 1;
+            }
+            >span:nth-child(2){
+              flex: 1;
+              border-right: 2px solid rgba(0,0,0,0.1);
+              border-left: 2px solid rgba(0,0,0,0.1);
+              @media only screen and (max-width: ${minWidth}px) {
+                border: none;
+                border-top: 2px solid rgba(0,0,0,0.1);
+                border-bottom: 2px solid rgba(0,0,0,0.1);
+              }
+            }
+            >span:nth-child(3){
+              flex: 1;
             }
             >span{
               padding: 15px;
               font-size: 20px;
               @media only screen and (max-width: ${minWidth}px) {
                 flex: 0 0 100%;
-                border: none;
               }
               p{
                 font-size: 50px;
@@ -61,6 +82,7 @@ const AboutStyle = createGlobalStyle`
           aligin-items: stretch;
           @media only screen and (max-width: ${minWidth}px) {
             flex-wrap: wrap;
+            margin-top: 50px;
           }
           >div{
             margin: 0px 5px;
@@ -81,11 +103,31 @@ const AboutStyle = createGlobalStyle`
             }
           }
         }
+        >div:last-child{
+          margin-top: -50px;
+          margin-left: 3%;
+          width: 94%;
+          transform: translateY(50%);
+          @media only screen and (max-width: ${minWidth}px) {
+            margin-top: 100px;
+            transform: unset;
+            flex-direction: column;
+          }
+          >div>div{
+            padding: 80px 50px;
+            @media only screen and (max-width: ${minWidth}px) {
+              padding: 20px;
+            }
+          }
+        }
       }
       >.bottom{
         background-size: cover;
         padding-top: 25rem;
         padding-bottom: 15rem;
+        @media only screen and (max-width: ${minWidth}px) {
+          padding: 10px;
+        }
         >div{
           margin-left: 3%;
           width: 94%;
@@ -93,20 +135,47 @@ const AboutStyle = createGlobalStyle`
           @media only screen and (max-width: ${minWidth}px) {
             flex-direction: column;
             text-align: center;
+            padding: 10px;
           }
-          .links{
-            button{
-              background: transparent;
+          >div{
+            @media only screen and (max-width: ${minWidth}px) {
               padding: 10px;
-              border: 2px solid gray;
-              color: gray;
+              *{
+                margin-left: 0px !important;
+                margin-right: 0px !important;
+              }
             }
-          }
-          .action, .links{
-            button:hover {
-              background: linear-gradient(90deg, green, yellow) !important;
-              color: white !important;
-              border-color: white !important;
+            .alert{
+              padding: 0px 30px;
+              border-left: 4px solid green;
+              @media only screen and (max-width: ${minWidth}px) {
+                padding: 0px;
+                border-left: none;
+              }
+            }
+            .links{
+              button{
+                background: transparent;
+                padding: 10px;
+                border: 2px solid gray;
+                color: gray;
+              }
+            }
+            .action, .links{
+              button:hover {
+                background: linear-gradient(90deg, green, yellow) !important;
+                color: white !important;
+                border-color: white !important;
+              }
+            }
+            .action{
+              @media only screen and (max-width: ${minWidth}px) {
+                display: flex;
+                flex-direction: column;
+                button{
+                  margin: 10px;
+                }
+              }
             }
           }
         }

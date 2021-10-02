@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({ sideMenuCtrl }) => {
   const TranslateString = useI18n()
   const history = useHistory()
   return (
-    <Page className="headerElement d-flex justify-content-between align-items-center" style={{ padding: '0px 100px' }}>
+    <Page className="headerElement d-flex justify-content-between align-items-center">
       <HeaderFooterStyle />
       <button
         className="cursor-pointer"

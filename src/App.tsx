@@ -11,10 +11,6 @@ import PageLoader from './components/PageLoader'
 import Stake from './views/Stake'
 import GlobalCheckBullHiccupClaimStatus from './views/Collectibles/components/GlobalCheckBullHiccupClaimStatus'
 import history from './routerHistory'
-import About from 'views/About/About'
-import Header from './views/HeaderFooter/Header'
-import Footer from './views/HeaderFooter/Footer'
-import SideMenu from './views/SideMenu/SideMenu'
 
 import 'font-awesome/css/font-awesome.min.css'
 
@@ -30,6 +26,11 @@ const Collectibles = lazy(() => import('./views/Collectibles'))
 const Teams = lazy(() => import('./views/Teams'))
 const Team = lazy(() => import('./views/Teams/Team'))
 const Profile = lazy(() => import('./views/Profile'))
+import About from 'views/About/About'
+import Header from './views/HeaderFooter/Header'
+import Footer from './views/HeaderFooter/Footer'
+import SideMenu from './views/SideMenu/SideMenu'
+import Contact from './views/Contact/Contact'
 
 // This config is required for number formating
 BigNumber.config({
@@ -64,6 +65,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Header sideMenuCtrl={SETsideMenuVisible} />
       <SideMenu visible={[sideMenuVisible, SETsideMenuVisible]} />
+      {/* <Menu /> */}
       <Suspense fallback={<PageLoader />}>
         <Switch>
           <Route path="/" exact>
@@ -98,6 +100,9 @@ const App: React.FC = () => {
           </Route>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
           {/* Redirect */}
           <Route path="/staking">

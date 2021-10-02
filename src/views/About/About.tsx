@@ -37,7 +37,7 @@ const About: React.FC = () => {
       <div className="main">
         <div className="d-flex flex-column text-center">
           <div className="d-flex justify-content-around">
-            <span style={{ flex: '1', borderRight: '2px solid rgba(0,0,0,0.1)' }}>
+            <span>
               <p>
                 <Icons.QuestionIcon />
               </p>
@@ -48,7 +48,7 @@ const About: React.FC = () => {
                 people's hands
               </div>
             </span>
-            <span style={{ flex: '1' }}>
+            <span>
               <p>
                 <Icons.LinkIcon />
               </p>
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                 enabled wallet.
               </div>
             </span>
-            <span style={{ flex: '1', borderLeft: '2px solid rgba(0,0,0,0.1)' }}>
+            <span>
               <p>
                 <Icons.UsersIcon />
               </p>
@@ -110,26 +110,23 @@ const About: React.FC = () => {
             <span>Address</span>
           </div>
         </div>
-        <div
-          className="d-flex"
-          style={{ position: 'relative', marginTop: '-50px', left: '3%', width: '94%', transform: 'translateY(50%)' }}
-        >
+        <div className="d-flex">
           <div className="flex-12-4" style={{ padding: '10px' }}>
-            <div className="text-center" style={{ background: 'white', padding: '80px 50px' }}>
+            <div className="text-center bg-white">
               <img src={mainBottomImg1} alt="" />
               <h2>sdfsdfsdf</h2>
               <h3>sdfsdfsdf</h3>
             </div>
           </div>
           <div className="flex-12-4" style={{ padding: '10px' }}>
-            <div className="text-center" style={{ background: 'white', padding: '80px 50px' }}>
+            <div className="text-center bg-white">
               <img src={mainBottomImg2} alt="" />
               <h2>sdfsdfsdf</h2>
               <h3>sdfsdfsdf</h3>
             </div>
           </div>
           <div className="flex-12-4" style={{ padding: '10px' }}>
-            <div className="text-center" style={{ background: 'white', padding: '80px 50px' }}>
+            <div className="text-center bg-white">
               <img src={mainBottomImg2} alt="" />
               <h2>sdfsdfsdf</h2>
               <h3>sdfsdfsdf</h3>
@@ -169,8 +166,8 @@ const About: React.FC = () => {
               </h3>
             </div>
           </div>
-          <div className="flex-12-6" style={{ padding: '50px' }}>
-            <h2 style={{ padding: '0px 30px', borderLeft: '4px solid green' }}>
+          <div className="flex-12-6">
+            <h2 className="alert">
               Let's connect and get <br /> to know each other
             </h2>
             <h3 style={{ marginLeft: '30px', marginTop: '20px' }}>

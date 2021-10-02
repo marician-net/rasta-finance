@@ -1,6 +1,7 @@
 import React from 'react'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
+import { useHistory } from 'react-router'
 
 import logoImg from '../../assets/images/logo.f2daa131.png'
 import SideMenuStyle from 'style/SideMenu'
@@ -14,6 +15,7 @@ const SideMenu: React.FC<Props> = ({ visible }) => {
   const TranslateString = useI18n()
   const visibility = visible[0]
   const SETvisibility = visible[1]
+  const history = useHistory()
   return (
     <Page className={'sideMenu d-flex flex-column align-content-stretch ' + (!visibility ? '' : 'showSideMenu')}>
       <SideMenuStyle />
@@ -62,8 +64,8 @@ const SideMenu: React.FC<Props> = ({ visible }) => {
 
         <Icons.RightIcon />
       </a>
-      <span>Mr. Rasta</span>
-      <span>Mrs. Rasta</span>
+      <span onClick={() => history.push('/farms')}>Mr. Rasta</span>
+      <span onClick={() => history.push('/farms')}>Mrs. Rasta</span>
       <a>
         <span>
           <Icons.PoolIcon />

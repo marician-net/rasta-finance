@@ -58,6 +58,17 @@ const IndexStyle = createGlobalStyle`
               button:last-child{
                 margin-left: 30px;
               }
+              @media only screen and (max-width: ${minWidth}px) {
+                flex-direction: column;
+                button{
+                  margin-left: 0px !important;
+                  margin-right: 0px !important;
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                  display: block;
+                  width: 100%;
+                }
+              }
             }
           }
           >div:last-child {
@@ -122,6 +133,17 @@ const IndexStyle = createGlobalStyle`
             }
             button:last-child {
               margin-left: 30px;
+            }
+            @media only screen and (max-width: ${minWidth}px) {
+              flex-direction: column;
+              button{
+                margin-left: 0px !important;
+                margin-right: 0px !important;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: block;
+                width: 100%;
+              }
             }
           }
         }

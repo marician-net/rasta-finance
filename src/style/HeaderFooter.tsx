@@ -12,10 +12,12 @@ const HeaderFooter = createGlobalStyle`
     .headerElement{
       @media only screen and (max-width: ${minWidth}px) {
         text-align: center;
+        padding: 10px;
+        flex-direction: column;
       }
       background-color: black;
       border-bottom: 1px solid gray;
-      padding: 0px;
+      padding: 0px 100px;
       max-width: unset;
       min-height: unset;
     }
@@ -24,11 +26,12 @@ const HeaderFooter = createGlobalStyle`
       min-height: unset;
       background-color: black;
       padding: 50px 100px;
+      @media only screen and (max-width: ${minWidth}px) {
+        padding: 50px 50px;
+      }
       *{
         @media only screen and (max-width: ${minWidth}px) {
           text-align: center;
-          margin-right: auto !important;
-          margin-left: auto !important;
         }
       }
       div{
@@ -44,6 +47,8 @@ const HeaderFooter = createGlobalStyle`
           >button{
             padding: 0.5rem;
             display: inline-flex;
+            @media only screen and (max-width: ${minWidth}px) {
+              margin: 10px;
             svg{
               width: 16px;
               height: 16px;
